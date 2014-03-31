@@ -1,7 +1,7 @@
-import dj_database_url
-import os
+import os, sys
+from unipath import Path
 
-Project_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROUTE = Path(__file__).ancestor(2)
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -48,11 +48,15 @@ USE_TZ = True
 
 # Static asset configuration
 
-STATIC_ROOT = 'staticfiles'
+STATIC_ROOT = ''
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(Project_DIR, 'static'),
+    PROJECT_ROUTE.child('static'),
+)
+
+TEMPLATE_DIRS = (
+    PROJECT_ROUTE.child('templates'),
 )
 
 # List of finder classes that know how to find static files in
@@ -87,12 +91,6 @@ ROOT_URLCONF = 'smartsecurity.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'smartsecurity.wsgi.application'
-
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
 
 INSTALLED_APPS = (
     'django.contrib.auth',

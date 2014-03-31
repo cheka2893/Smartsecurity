@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<!-- Bootstrap CSS -->
+	<link href="{{STATIC_URL}}css/bootstrap.min.css" rel="stylesheet">
+	<link href="{{STATIC_URL}}css/bootstrap-glyphicons.css" rel="stylesheet">
+	
+	<!-- Custom CSS -->
+	<link href="{{STATIC_URL}}css/styles.css" rel="stylesheet">
+	
+	<!-- Include Modernizr in the head, before any other Javascript -->
+	<script src="{{STATIC_URL}}js/modernizr-2.6.2.min.js"></script>
+	{% block extra_css_links %}{% endblock %}
+</head>
+<body>
+	<header>
+		
+	</header><!-- end header-->
+
+	<section>
+		{% block page_content %}{% endblock %}
+	</section><!-- end Content-->
+
+	<footer>
+		
+	</footer><!-- end footer-->
+
+
+	<!-- First try for the online version of jQuery-->
+	<script src="http://code.jquery.com/jquery.js"></script>
+	
+	<!-- If no online access, fallback to our hardcoded version of jQuery -->
+	<script>window.jQuery || document.write('<script src="{{STATIC_URL}}js/jquery-1.11.0.min.js"><\/script>')</script>
+	
+	<!-- Bootstrap JS -->
+	<script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
+	
+	<!-- Custom JS -->
+	<script src="{{STATIC_URL}}js/script.js"></script>
+
+	{% block extra_javascript %}{% endblock %}
+</body>
+</html>
